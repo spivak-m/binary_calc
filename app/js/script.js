@@ -1,9 +1,9 @@
 'use strict'
 
-var calc		= document.querySelector('.js-calc'),
-	inputs		= calc.querySelectorAll('.js-calcInput'),
-	operators	= calc.querySelectorAll('.js-calcBtn'),
-	result		= calc.querySelector('.js-calcResult');
+var calcForm		= document.querySelector('.js-calc'),
+	inputs		= calcForm.querySelectorAll('.js-calcInput'),
+	operators	= calcForm.querySelectorAll('.js-calcBtn'),
+	result		= calcForm.querySelector('.js-calcResult');
 
 for(var i = 0; i < operators.length; i++) {
 	operators[i].addEventListener('click', function(e) {
@@ -61,6 +61,25 @@ for(var i = 0; i < operators.length; i++) {
 	});
 }
 
+window.onkeydown = function(e) {
+	if(e.keyCode == 107) {
+		var operator = calcForm.querySelector('.js-calcBtn[data-operator="plus"]');
+		operator.click();
+	} else if(e.keyCode == 109) {
+		var operator = calcForm.querySelector('.js-calcBtn[data-operator="minus"]');
+		operator.click();
+	} else if(e.keyCode == 65) {
+		var operator = calcForm.querySelector('.js-calcBtn[data-operator="and"]');
+		operator.click();
+	} else if(e.keyCode == 79) {
+		var operator = calcForm.querySelector('.js-calcBtn[data-operator="or"]');
+		operator.click();
+	} else if(e.keyCode == 67) {
+		var operator = calcForm.querySelector('.js-calcBtn[data-operator="c"]');
+		operator.click();
+	};
+};
+
 // VALIDATE INPUT FIELDS
 
 for(var i = 0; i < inputs.length; i++) {
@@ -69,6 +88,9 @@ for(var i = 0; i < inputs.length; i++) {
 			(e.keyCode == 65 && e.ctrlKey === true) ||
 			(e.keyCode >= 35 && e.keyCode <= 39) ) {
 			return
+		} else if (e.keyCode == 107 || e.keyCode == 109 || e.keyCode == 65 || e.keyCode == 67 || e.keyCode == 79) {
+			e.preventDefault();
+			this.parentElement.querySelector('.calc_input-notify').classList.remove('__is-show');
 		} else {
 			if (e.keyCode != 48 && e.keyCode != 49 && e.keyCode != 96 && e.keyCode != 97) {
 				this.parentElement.querySelector('.calc_input-notify').classList.add('__is-show');
