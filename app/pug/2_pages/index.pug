@@ -1,0 +1,35 @@
+extends ../0_base/template
+
+block title
+	title calc
+
+block pageContent
+	form(action="#" method="post").calc.js-calc
+		h1.calc_title Двоичный калькулятор
+
+		fieldset.calc_fields
+			legend.calc_fields-legend Введите значения в <strong>двоичной системе исчисления</strong>
+			
+			.calc_fields-row
+				.calc_field-wrapper
+					span.calc_field-sign Первое значение:
+					input(type="text" name="firstNum" placeholder="Введите значение").calc_field.js-calcInput
+					span.calc_input-notify Пожалуйста, вводите цифры от 0 до 1
+				.calc_field-wrapper
+					span.calc_field-sign Второе значение:
+					input(type="text" name="secondNum" placeholder="Введите значение").calc_field.js-calcInput
+					span.calc_input-notify Пожалуйста, вводите цифры от 0 до 1
+
+		.calc_btns
+			button(type="button" data-operator="plus").calc_btn.js-calcBtn +
+			button(type="button" data-operator="minus").calc_btn.js-calcBtn -
+			button(type="button" data-operator="and").calc_btn.js-calcBtn and
+			button(type="button" data-operator="or").calc_btn.js-calcBtn or
+			button(type="button" data-operator="c").calc_btn.__red.js-calcBtn C
+
+		fieldset.calc_fields.calc_result-block
+			legend.calc_fields-legend Результат:
+			
+			.calc_fields-row
+				.calc_field-wrapper
+					input(type="text" name="result" disabled).calc_field.js-calcResult

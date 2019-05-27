@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>calc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <form class="calc js-calc" action="#" method="post">
+      <h1 class="calc_title">Двоичный калькулятор</h1>
+      <fieldset class="calc_fields">
+        <legend class="calc_fields-legend">Введите значения в <strong>двоичной системе исчисления</strong></legend>
+        <div class="calc_fields-row">
+          <div class="calc_field-wrapper"><span class="calc_field-sign">Первое значение:</span>
+            <input class="calc_field js-calcInput" type="text" name="firstNum" placeholder="Введите значение"/><span class="calc_input-notify">Пожалуйста, вводите цифры от 0 до 1</span>
+          </div>
+          <div class="calc_field-wrapper"><span class="calc_field-sign">Второе значение:</span>
+            <input class="calc_field js-calcInput" type="text" name="secondNum" placeholder="Введите значение"/><span class="calc_input-notify">Пожалуйста, вводите цифры от 0 до 1</span>
+          </div>
+        </div>
+      </fieldset>
+      <div class="calc_btns">
+        <button class="calc_btn js-calcBtn" type="button" data-operator="plus">+</button>
+        <button class="calc_btn js-calcBtn" type="button" data-operator="minus">-</button>
+        <button class="calc_btn js-calcBtn" type="button" data-operator="and">and</button>
+        <button class="calc_btn js-calcBtn" type="button" data-operator="or">or</button>
+        <button class="calc_btn __red js-calcBtn" type="button" data-operator="c">C</button>
+      </div>
+      <fieldset class="calc_fields calc_result-block">
+        <legend class="calc_fields-legend">Результат:</legend>
+        <div class="calc_fields-row">
+          <div class="calc_field-wrapper">
+            <input class="calc_field js-calcResult" type="text" name="result" disabled="disabled"/>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <script src="js/script.js"></script>
+  </head>
+</html>
