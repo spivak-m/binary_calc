@@ -77,6 +77,12 @@ window.onkeydown = function(e) {
 	} else if(e.keyCode == 67) {
 		var operator = calcForm.querySelector('.js-calcBtn[data-operator="c"]');
 		operator.click();
+	} else if(e.keyCode == 81) {
+		e.preventDefault();
+		inputs[0].focus();
+	} else if(e.keyCode == 87) {
+		e.preventDefault();
+		inputs[1].focus();
 	};
 };
 
